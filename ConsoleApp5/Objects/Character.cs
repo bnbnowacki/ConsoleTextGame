@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
+    //Object of this class can be controlled by player.
     class Character : GameObject
     {
         public byte level

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
+    //Basic class for objects in game.
     class GameObject
     {
         public int posX

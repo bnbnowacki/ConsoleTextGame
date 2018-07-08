@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
+    //main class for managing in game logic and mechanics.
     static class GameManager
     {
         public static List<Character> activeCharacters = new List<Character>();

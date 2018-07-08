@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
+    //Class for managing all inputs made by user in game.
     static class InputManager
     {
         public static ConsoleKey activeKey { get; private set; }

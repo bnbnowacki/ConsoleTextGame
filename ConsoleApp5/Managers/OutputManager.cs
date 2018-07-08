@@ -42,6 +42,8 @@ namespace ConsoleApp5
             CreateItems();
             CreateCharacters();
         }
+
+        //method used to create world matrix including bounds.
         static void CreateLevel()
         {
             char[,] level = new char[gameWindowHeight, gameWindowWidth];
@@ -67,6 +69,8 @@ namespace ConsoleApp5
             gameWindowTiles = level;
         }
 
+
+        //method used to add existing items in game to world matrix.
         static void CreateItems()
         {
             foreach (Item item in GameManager.activeItems)
@@ -84,6 +88,7 @@ namespace ConsoleApp5
             }
         }
 
+        //method used to add existing characters in game to world matrix.
         static void CreateCharacters()
         {
             foreach (Character character in GameManager.activeCharacters)
@@ -101,6 +106,8 @@ namespace ConsoleApp5
             }
         }
 
+
+        // WIP ( improvements in refreshing screen)
         public static void DrawPlayerMovement(Player player)
         {
             switch (player.lastMove)

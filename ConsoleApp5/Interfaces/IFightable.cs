@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp5
 {
+    //Interface, that should be implemented by all kind of objects, that can fight in game.
     interface IFightable
     {
         int health { get; set; }
