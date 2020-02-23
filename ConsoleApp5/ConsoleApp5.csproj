@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameData\ExperienceTable.cs" />
+    <Compile Include="Objects\Equipment.cs" />
     <Compile Include="Objects\Item.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Interfaces\IFightable.cs" />

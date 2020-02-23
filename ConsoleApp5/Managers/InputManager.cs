@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp5.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -136,7 +137,8 @@ namespace ConsoleApp5
                                     }
                                     else
                                     {
-                                        player.EquipWeapon(GameManager.selectedItem);
+                                        if(GameManager.selectedItem is Equipment)
+                                        player.EquipWeapon(GameManager.selectedItem as Equipment);
                                         GameManager.SelectInventoryItem(null);
                                         GameManager.inventoryState = GameManager.EInventoryState.Normal;
                                     }

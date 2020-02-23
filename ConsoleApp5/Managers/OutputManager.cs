@@ -1,4 +1,5 @@
-﻿using ConsoleApp5.Properties;
+﻿using ConsoleApp5.Objects;
+using ConsoleApp5.Properties;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -194,8 +195,9 @@ namespace ConsoleApp5
                             else
                                 Console.WriteLine("[E] Equip Item, [D] Drop Item");
                             Console.WriteLine("Item Name: " + GameManager.selectedItem.name);
-                            Console.WriteLine("Item Attack Value: " + GameManager.selectedItem.attackValue);
-                            Console.WriteLine("Item Defence value: " + GameManager.selectedItem.defenseValue);
+                            if(GameManager.selectedItem is Equipment)
+                            Console.WriteLine("Item Attack Value: " + ((Equipment)GameManager.selectedItem).attackValue);
+                            Console.WriteLine("Item Defence value: " + ((Equipment)GameManager.selectedItem).defenseValue);
                             break;
                     }
                     break;

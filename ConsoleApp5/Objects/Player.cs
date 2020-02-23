@@ -1,4 +1,5 @@
 ﻿using ConsoleApp5.GameData;
+using ConsoleApp5.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,7 @@ namespace ConsoleApp5
         private int[] baseAttackByLvl = new int[] { 6, 8, 10 };
         private int[] baseDefenceByLvl = new int[] { 2, 3, 4 };
         public List<Item> inventory { get; private set; }
-        public Equipment activeEquipment;
+        public EquipmentSet activeEquipment;
         public Player(int posX, int posY) : base(posX, posY)
         {
             inventory = new List<Item>();
@@ -47,12 +48,12 @@ namespace ConsoleApp5
             this.inventoryPage = page;
         }
 
-        public void EquipWeapon(Item item)
+        public void EquipWeapon(Equipment item)
         {
             activeEquipment.weapon = item;
         }
 
-        public void EquipShield(Item item)
+        public void EquipShield(Equipment item)
         {
             activeEquipment.shield = item;
         }
@@ -71,11 +72,16 @@ namespace ConsoleApp5
         {
             this.experience += expAmount;
 
-
-            while (this.experience >= ExperienceTable.experienceTable[this.level])
+            if(this.level < ExperienceTable.experienceTable.Length)
             {
-                this.LevelUp();
-                UpdateBaseStats();
+                while (this.experience >= ExperienceTable.experienceTable[this.level])
+                {
+                    this.LevelUp();
+                    UpdateBaseStats();
+
+                    if (this.level >= ExperienceTable.experienceTable.Length)
+                        break;
+                }
             }
         }
 
@@ -104,5 +110,10 @@ namespace ConsoleApp5
             }
             return updatedPositions;
         }*/
+    }
+    struct EquipmentSet
+    {
+        public Equipment weapon;
+        public Equipment shield;
     }
 }
