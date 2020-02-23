@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp5.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,10 +10,13 @@ namespace ConsoleApp5
     /* Class for handling everything that has to be written in console window. */
     static class OutputManager
     {
-        public const int screenWidth = 60;
+        public const int screenWidth = 140;
         public const int screenHeight = 40;
-        public const int gameWindowWidth = 30;
+        public const int gameWindowWidth = 60;
         public const int gameWindowHeight = 20;
+
+        private static int cameraOffsetX = 0;
+        private static int cameraOffsetY = 0;
 
         public static char[,] gameWindowTiles = new char[gameWindowHeight,gameWindowWidth];
 
@@ -20,8 +24,9 @@ namespace ConsoleApp5
         public static void DrawScreen()
         {
             Console.Clear();
+            AddCameraOffset();
             CreateGameWindow();
-            Console.WriteLine("TEXT BASED RPG BY GONZO");
+            Console.WriteLine(Strings.TxtGameTitle);
             if(GameManager.gameState == GameManager.EGameState.World)
             DrawLevel();
             if(GameManager.gameState == GameManager.EGameState.Fight || GameManager.gameState == GameManager.EGameState.FightEnd)
@@ -41,6 +46,17 @@ namespace ConsoleApp5
             CreateLevel();
             CreateItems();
             CreateCharacters();
+        }
+        static void AddCameraOffset()
+        {
+            if (GameManager.player.posX >= gameWindowWidth - 5 + cameraOffsetX)
+                cameraOffsetX++;
+            if (GameManager.player.posY >= gameWindowHeight - 5 + cameraOffsetY)
+                cameraOffsetY++;
+            if (GameManager.player.posX <= cameraOffsetX + 5)
+                cameraOffsetX--;
+            if (GameManager.player.posY <= cameraOffsetY + 5)
+                cameraOffsetY--;
         }
 
         //method used to create world matrix including bounds.
@@ -79,7 +95,7 @@ namespace ConsoleApp5
                 {
                     for (int j = 0; j < gameWindowTiles.GetLength(1); j++)
                     {
-                        if (item.posY == i && item.posX == j)
+                        if (item.posY == i + cameraOffsetY && item.posX == j + cameraOffsetX)
                         {
                             gameWindowTiles[i, j] = item.texture;
                         }
@@ -97,7 +113,7 @@ namespace ConsoleApp5
                 {
                     for (int j = 0; j < gameWindowTiles.GetLength(1); j++)
                     {
-                        if (character.posY == i && character.posX == j)
+                        if (character.posY == i + cameraOffsetY && character.posX == j + cameraOffsetX)
                         {
                             gameWindowTiles[i, j] = character.texture;
                         }
@@ -141,8 +157,6 @@ namespace ConsoleApp5
 
         static void DrawLevel()
         {
-            //Console.ResetColor();
-            //Console.BackgroundColor = ConsoleColor.DarkGreen;
             for (int i = 0; i < gameWindowHeight; i++)
             {
                 for (int j = 0; j < gameWindowWidth; j++)

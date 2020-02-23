@@ -14,7 +14,7 @@ namespace ConsoleApp5
             Console.SetWindowSize(OutputManager.screenWidth, OutputManager.screenHeight);
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
-            Player player = new Player(5, 5, 1, '*');
+            Player player = new Player(15, 15, 1, '*');
             Monster monster1 = new Monster("Skeleton", 10, 10, 1, '#');
             Monster monster2 = new Monster("Skeleton", 10, 12, 1, '#');
             Monster monster3 = new Monster("Skeleton", 5, 15, 1, '#');
