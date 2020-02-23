@@ -61,7 +61,7 @@ namespace ConsoleApp5.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to TEXT BASED RPG BY GONZO.
+        ///   Looks up a localized string similar to TEXT BASED RPG BY GONZO                PLAYER LEVEL: {0}.
         /// </summary>
         internal static string TxtGameTitle {
             get {

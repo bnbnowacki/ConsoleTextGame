@@ -14,18 +14,17 @@ namespace ConsoleApp5
         public int baseAttack { get; set; }
         public int baseDefence { get; set; }
 
-        public Monster(string name, int posX, int posY, byte level, char texture) : base(posX, posY, level, texture)
+        public int experienceAward { get; }
+
+        public Monster(string name, int posX, int posY, byte level, int expAward, char texture) : base(posX, posY, level, texture)
         {
             this.name = name;
             this.baseAttack = 5;
             this.baseDefence = 2;
             this.health = 50;
+            this.experienceAward = expAward;
         }
 
-        public void ChangeHealth(int value)
-        {
-            this.health += value;
-        }
         public void DealDamage(int value, IFightable opponent)
         {
             opponent.ChangeHealth(-value);

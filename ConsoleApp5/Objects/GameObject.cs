@@ -66,10 +66,12 @@ namespace ConsoleApp5
             this.texture = texture;
         }
 
-        public void SetPosition(int posX, int posY)
+        public void SetPosition(int posX = -1, int posY = -1)
         {
-            this.posX = posX;
-            this.posY = posY;
+            if (posX != -1)
+                this.posX = posX;
+            if (posY != -1)
+                this.posY = posY;
         }
     }
 

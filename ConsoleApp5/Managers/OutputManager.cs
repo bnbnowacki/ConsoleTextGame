@@ -26,7 +26,7 @@ namespace ConsoleApp5
             Console.Clear();
             AddCameraOffset();
             CreateGameWindow();
-            Console.WriteLine(Strings.TxtGameTitle);
+            Console.WriteLine(Strings.TxtGameTitle, GameManager.player.level);
             if(GameManager.gameState == GameManager.EGameState.World)
             DrawLevel();
             if(GameManager.gameState == GameManager.EGameState.Fight || GameManager.gameState == GameManager.EGameState.FightEnd)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleApp5.GameData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -29,18 +30,8 @@ namespace ConsoleApp5
             this.baseDefence = 2;
         }
 
-        public void setPosition(int posX = -1, int posY = -1)
-        {
-            if (posX != -1)
-                this.posX = posX;
-            if (posY != -1)
-                this.posY = posY;
-        }
 
-        public void ChangeHealth(int value)
-        {
-            this.health += value;
-        }
+
         public void DealDamage(int value, IFightable opponent)
         {
             opponent.ChangeHealth(-value);
@@ -69,6 +60,17 @@ namespace ConsoleApp5
         public void UnequipShield()
         {
             activeEquipment.shield = null;
+        }
+
+        public void AddExperience(int expAmount)
+        {
+            this.experience += expAmount;
+
+
+            while (this.experience >= ExperienceTable.experienceTable[this.level])
+            {
+                this.LevelUp();
+            }
         }
         /*
         private List<Position2D> updatePositions()

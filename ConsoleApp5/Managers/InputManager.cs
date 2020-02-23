@@ -22,19 +22,19 @@ namespace ConsoleApp5
                     {
                         case ConsoleKey.UpArrow:
                             player.SetLastMove(Character.ELastMove.Up);
-                            player.setPosition(posY: player.posY - 1);
+                            player.SetPosition(posY: player.posY - 1);
                             break;
                         case ConsoleKey.DownArrow:
                             player.SetLastMove(Character.ELastMove.Down);
-                            player.setPosition(posY: player.posY + 1);
+                            player.SetPosition(posY: player.posY + 1);
                             break;
                         case ConsoleKey.RightArrow:
                             player.SetLastMove(Character.ELastMove.Right);
-                            player.setPosition(posX: player.posX + 1);
+                            player.SetPosition(posX: player.posX + 1);
                             break;
                         case ConsoleKey.LeftArrow:
                             player.SetLastMove(Character.ELastMove.Left);
-                            player.setPosition(posX: player.posX - 1);
+                            player.SetPosition(posX: player.posX - 1);
                             break;
                     }
                     switch (GameManager.inventoryState)

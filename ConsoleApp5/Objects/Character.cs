@@ -27,7 +27,7 @@ namespace ConsoleApp5
         public int experience
         {
             get;
-            private set;
+            protected set;
         }
 
         public int maxHealth
@@ -41,7 +41,15 @@ namespace ConsoleApp5
             get;
             set;
         }
+        public void ChangeHealth(int value)
+        {
+            this.health += value;
+        }
 
+        public void LevelUp()
+        {
+            this.level++;
+        }
         public Character() : base()
         {
             this.level = 1;

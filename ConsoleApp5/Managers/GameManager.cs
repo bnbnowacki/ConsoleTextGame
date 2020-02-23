@@ -98,6 +98,7 @@ namespace ConsoleApp5
             else
             {
                 gameState = EGameState.FightEnd;
+                player.AddExperience(activeOpponent.experienceAward);
             }
         }
 
