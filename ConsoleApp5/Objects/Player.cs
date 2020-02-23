@@ -12,6 +12,9 @@ namespace ConsoleApp5
         public byte inventoryPage { get; private set; }
         public int baseAttack { get; set; }
         public int baseDefence { get; set; }
+
+        private int[] baseAttackByLvl = new int[] { 6, 8, 10 };
+        private int[] baseDefenceByLvl = new int[] { 2, 3, 4 };
         public List<Item> inventory { get; private set; }
         public Equipment activeEquipment;
         public Player(int posX, int posY) : base(posX, posY)
@@ -19,6 +22,8 @@ namespace ConsoleApp5
             inventory = new List<Item>();
             GameManager.player = this;
             InputManager.player = this;
+            this.baseAttack = baseAttackByLvl[this.level - 1];
+            this.baseDefence = baseDefenceByLvl[this.level - 1];
         }
 
         public Player(int posX, int posY, byte level, char texture) : base(posX, posY, level, texture)
@@ -26,8 +31,8 @@ namespace ConsoleApp5
             inventory = new List<Item>();
             GameManager.player = this;
             InputManager.player = this;
-            this.baseAttack = 10;
-            this.baseDefence = 2;
+            this.baseAttack = baseAttackByLvl[this.level - 1];
+            this.baseDefence = baseDefenceByLvl[this.level - 1];
         }
 
 
@@ -70,7 +75,14 @@ namespace ConsoleApp5
             while (this.experience >= ExperienceTable.experienceTable[this.level])
             {
                 this.LevelUp();
+                UpdateBaseStats();
             }
+        }
+
+        private void UpdateBaseStats()
+        {
+            this.baseAttack = baseAttackByLvl[this.level - 1];
+            this.baseDefence = baseDefenceByLvl[this.level - 1];
         }
         /*
         private List<Position2D> updatePositions()
