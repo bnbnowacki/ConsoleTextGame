@@ -97,7 +97,7 @@ namespace ConsoleApp5
                         case GameManager.EInventoryState.Monster:
                             switch (activeKey)
                             {
-                                case ConsoleKey.Y:
+                                case ConsoleKey.A:
                                     GameManager.gameState = GameManager.EGameState.Fight;
                                     break;
                             }
@@ -106,7 +106,7 @@ namespace ConsoleApp5
                         case GameManager.EInventoryState.Item:
                             switch (activeKey)
                             {
-                                case ConsoleKey.Y:
+                                case ConsoleKey.A:
                                     player.inventory.Add(GameManager.activeItems[GameManager.activeItemListPosition]);
                                     GameManager.activeItems.Remove(GameManager.activeItems[GameManager.activeItemListPosition]);
                                     break;

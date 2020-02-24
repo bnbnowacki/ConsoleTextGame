@@ -180,12 +180,12 @@ namespace ConsoleApp5
                             break;
 
                         case GameManager.EInventoryState.Monster:
-                            Console.WriteLine("[Y] Yes");
+                            Console.WriteLine("[A] Attack");
                             Console.WriteLine("Are you sure you want to attack this monster? ({0})", GameManager.activeOpponent.name);
                             break;
 
                         case GameManager.EInventoryState.Item:
-                            Console.WriteLine("[Y] Yes");
+                            Console.WriteLine("[A] Pick up");
                             Console.WriteLine("Do you want to pick up this " + GameManager.activeItem.name + "?");
                             break;
 
