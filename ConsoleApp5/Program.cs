@@ -1,4 +1,5 @@
-﻿using ConsoleApp5.Objects;
+﻿using ConsoleApp5.GameData.Game_Objects.Items;
+using ConsoleApp5.Objects;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,11 +17,11 @@ namespace ConsoleApp5
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
             Player player = new Player(15, 15, 1, '*');
-            Monster monster1 = new Monster("Skeleton", 10, 10, 1, 50, '#');
-            Monster monster2 = new Monster("Skeleton", 10, 12, 1, 50, '#');
-            Monster monster3 = new Monster("Skeleton", 5, 15, 1, 50, '#');
-            Monster monster4 = new Monster("Skeleton", 1, 18, 1, 50, '#');
+            List<Monster> monsters = new List<Monster>() { new Monster("Skeleton", 10, 10, 1, 50, '#'), new Monster("Skeleton", 10, 12, 1, 50, '#'), new Monster("Skeleton", 5, 15, 1, 50, '#'), new Monster("Skeleton", 1, 18, 1, 50, '#'),  };
+
             Equipment sword = new Equipment(10, 12, '/', "Sword", 10, 1);
+            Currency money = new Currency(10, 10, '+', "Gold", 40);
+
             ConsoleKey actualKey = ConsoleKey.F12;
             OutputManager.DrawScreen();
 

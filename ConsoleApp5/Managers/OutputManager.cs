@@ -186,7 +186,7 @@ namespace ConsoleApp5
 
                         case GameManager.EInventoryState.Item:
                             Console.WriteLine("[A] Pick up");
-                            Console.WriteLine("Do you want to pick up this " + GameManager.activeItem.name + "?");
+                            Console.WriteLine("Do you want to pick up this " + GameManager.activeItem.Name + "?");
                             break;
 
                         case GameManager.EInventoryState.SelectedItem:
@@ -194,10 +194,12 @@ namespace ConsoleApp5
                                 Console.WriteLine("[E] Unequip Item, [D] Drop Item");
                             else
                                 Console.WriteLine("[E] Equip Item, [D] Drop Item");
-                            Console.WriteLine("Item Name: " + GameManager.selectedItem.name);
+                            Console.WriteLine("Item Name: " + GameManager.selectedItem.Name);
                             if(GameManager.selectedItem is Equipment)
-                            Console.WriteLine("Item Attack Value: " + ((Equipment)GameManager.selectedItem).attackValue);
-                            Console.WriteLine("Item Defence value: " + ((Equipment)GameManager.selectedItem).defenseValue);
+                            {
+                                Console.WriteLine("Item Attack Value: " + ((Equipment)GameManager.selectedItem).attackValue);
+                                Console.WriteLine("Item Defence value: " + ((Equipment)GameManager.selectedItem).defenseValue);
+                            }
                             break;
                     }
                     break;
@@ -233,7 +235,7 @@ namespace ConsoleApp5
                 {
                     if (items[i + activePage] != null)
                     {
-                        itemName = items[i + activePage].name;
+                        itemName = items[i + activePage].Name;
                         if(GameManager.player.activeEquipment.weapon != null && GameManager.player.activeEquipment.weapon == items[i + activePage])
                         {
                             isEquippedText = "(Equipped)";

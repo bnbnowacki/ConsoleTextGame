@@ -14,6 +14,7 @@ namespace ConsoleApp5
         public int baseAttack { get; set; }
         public int baseDefence { get; set; }
 
+
         private int[] baseAttackByLvl = new int[] { 6, 8, 10 };
         private int[] baseDefenceByLvl = new int[] { 2, 3, 4 };
         public List<Item> inventory { get; private set; }

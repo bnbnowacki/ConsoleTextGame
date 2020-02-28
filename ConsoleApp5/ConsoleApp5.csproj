@@ -43,16 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GameData\ExperienceTable.cs" />
-    <Compile Include="Objects\Equipment.cs" />
-    <Compile Include="Objects\Item.cs" />
+    <Compile Include="GameData\GameObjects\Items\Currency.cs" />
+    <Compile Include="GameData\GameObjects\Items\Equipment.cs" />
+    <Compile Include="GameData\GameObjects\Items\Item.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Interfaces\IFightable.cs" />
     <Compile Include="Managers\InputManager.cs" />
-    <Compile Include="Objects\Monster.cs" />
-    <Compile Include="Objects\Character.cs" />
-    <Compile Include="Objects\GameObject.cs" />
+    <Compile Include="GameData\GameObjects\Characters\Monster.cs" />
+    <Compile Include="GameData\GameObjects\Characters\Character.cs" />
+    <Compile Include="GameData\GameObjects\GameObject.cs" />
     <Compile Include="Level.cs" />
-    <Compile Include="Objects\Player.cs" />
+    <Compile Include="GameData\GameObjects\Characters\Player.cs" />
     <Compile Include="Managers\OutputManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,5 +72,6 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

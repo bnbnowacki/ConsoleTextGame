@@ -8,21 +8,21 @@ namespace ConsoleApp5
 {
     class Item : GameObject
     {
-        public string name { get; private set; }
+        public string Name { get; protected set; }
 
         public Item() : base()
         {
-            this.name = "";
+            this.Name = "";
         }
 
-        public Item(string name)
+        public Item(string name) : base()
         {
-            this.name = name;
+            this.Name = name;
         }
 
         public Item(int posX, int posY, char texture, string name) : base(posX, posY, texture)
         {
-            this.name = name;
+            this.Name = name;
             GameManager.activeItems.Add(this);
         }
     }
