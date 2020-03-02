@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ConsoleApp5.GameData.Game_Objects.Items;
+using ConsoleApp5.Objects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -84,10 +86,10 @@ namespace ConsoleApp5
                 playerShieldDefence = player.activeEquipment.shield.defenseValue;
             }
 
-            int playerTrueDamage = player.baseAttack + playerWeaponAttack;
-            int playerTrueDefence = player.baseDefence + playerWeaponDefence + playerShieldDefence;
-            int opponentTrueDamage = activeOpponent.baseAttack;
-            int opponentTrueDefence = activeOpponent.baseDefence;
+            int playerTrueDamage = player.BaseAttack + playerWeaponAttack;
+            int playerTrueDefence = player.BaseDefence + playerWeaponDefence + playerShieldDefence;
+            int opponentTrueDamage = activeOpponent.BaseAttack;
+            int opponentTrueDefence = activeOpponent.BaseDefence;
             lastPlayerHit = rand.Next(0, playerTrueDamage - opponentTrueDefence);
             player.DealDamage(lastPlayerHit, activeOpponent);
             if(activeOpponent.health > 0)
@@ -99,6 +101,22 @@ namespace ConsoleApp5
             {
                 gameState = EGameState.FightEnd;
                 player.AddExperience(activeOpponent.experienceAward);
+                AddDropToGameWorld(activeOpponent.GenerateDrop());
+            }
+        }
+
+        private static void AddDropToGameWorld(List<Item> items)
+        {
+            foreach (Item item in items)
+            {
+                if(item is Currency)
+                {
+                    Currency cur = new Currency(activeOpponent.posX, activeOpponent.posY, '+', item.Name, 1, 10);
+                }
+                else if(item is Equipment)
+                {
+                    Equipment eq = new Equipment(activeOpponent.posX, activeOpponent.posY, '/', item.Name, ((Equipment)item).attackValue, ((Equipment)item).defenseValue);
+                }
             }
         }
 

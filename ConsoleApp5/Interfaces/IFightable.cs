@@ -11,8 +11,8 @@ namespace ConsoleApp5
     {
         int health { get; set; }
         int maxHealth { get; set; }
-        int baseAttack { get; set; }
-        int baseDefence { get; set; }
+        int BaseAttack { get; set; }
+        int BaseDefence { get; set; }
         void ChangeHealth(int value);
         void DealDamage(int value, IFightable opponent);
     }

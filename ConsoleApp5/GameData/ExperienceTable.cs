@@ -12,7 +12,11 @@ namespace ConsoleApp5.GameData
         {
             0,     //lvl 1
             100,   //lvl 2
-            200,   //lvl 3
+            250,   //lvl 3
+            450,   //lvl 4
+            700,   //lvl 5
+            1000,  //lvl 6
+
         };
     }
 }

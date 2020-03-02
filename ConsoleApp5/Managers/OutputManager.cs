@@ -11,7 +11,7 @@ namespace ConsoleApp5
     /* Class for handling everything that has to be written in console window. */
     static class OutputManager
     {
-        public const int screenWidth = 140;
+        public const int screenWidth = 130;
         public const int screenHeight = 40;
         public const int gameWindowWidth = 60;
         public const int gameWindowHeight = 20;
@@ -186,7 +186,7 @@ namespace ConsoleApp5
 
                         case GameManager.EInventoryState.Item:
                             Console.WriteLine("[A] Pick up");
-                            Console.WriteLine("Do you want to pick up this " + GameManager.activeItem.Name + "?");
+                            Console.WriteLine("Do you want to pick up this " + GameManager.activeItem.Name + "?");//todo
                             break;
 
                         case GameManager.EInventoryState.SelectedItem:

@@ -1,4 +1,5 @@
-﻿using ConsoleApp5.GameData.Game_Objects.Items;
+﻿using ConsoleApp5.GameData;
+using ConsoleApp5.GameData.Game_Objects.Items;
 using ConsoleApp5.Objects;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,12 @@ namespace ConsoleApp5
             Console.BackgroundColor = ConsoleColor.Black;
             Console.CursorVisible = false;
             Player player = new Player(15, 15, 1, '*');
-            List<Monster> monsters = new List<Monster>() { new Monster("Skeleton", 10, 10, 1, 50, '#'), new Monster("Skeleton", 10, 12, 1, 50, '#'), new Monster("Skeleton", 5, 15, 1, 50, '#'), new Monster("Skeleton", 1, 18, 1, 50, '#'),  };
-
             Equipment sword = new Equipment(10, 12, '/', "Sword", 10, 1);
-            Currency money = new Currency(10, 10, '+', "Gold", 40);
+            Currency money = new Currency(10, 10, '+', "Gold", 1, 10);
+
+            List<DropItem> skeletonDrop = new List<DropItem>() { new DropItem(new Equipment("Mace", 2, 1), 30), new DropItem(new Currency("Gold", 1, 10), 100) };
+            List<Monster> monsters = new List<Monster>() { new Monster("Skeleton", 10, 10, 1, 50, '#', skeletonDrop), new Monster("Skeleton", 10, 12, 1, 50, '#', skeletonDrop), new Monster("Skeleton", 5, 15, 1, 50, '#', skeletonDrop), new Monster("Skeleton", 1, 18, 1, 50, '#', skeletonDrop),  };
+
 
             ConsoleKey actualKey = ConsoleKey.F12;
             OutputManager.DrawScreen();

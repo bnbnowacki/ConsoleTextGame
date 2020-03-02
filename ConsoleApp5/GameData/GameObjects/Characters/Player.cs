@@ -11,8 +11,8 @@ namespace ConsoleApp5
     class Player : Character, IFightable
     {
         public byte inventoryPage { get; private set; }
-        public int baseAttack { get; set; }
-        public int baseDefence { get; set; }
+        public int BaseAttack { get; set; }
+        public int BaseDefence { get; set; }
 
 
         private int[] baseAttackByLvl = new int[] { 6, 8, 10 };
@@ -24,8 +24,8 @@ namespace ConsoleApp5
             inventory = new List<Item>();
             GameManager.player = this;
             InputManager.player = this;
-            this.baseAttack = baseAttackByLvl[this.level - 1];
-            this.baseDefence = baseDefenceByLvl[this.level - 1];
+            this.BaseAttack = baseAttackByLvl[this.level - 1];
+            this.BaseDefence = baseDefenceByLvl[this.level - 1];
         }
 
         public Player(int posX, int posY, byte level, char texture) : base(posX, posY, level, texture)
@@ -33,8 +33,8 @@ namespace ConsoleApp5
             inventory = new List<Item>();
             GameManager.player = this;
             InputManager.player = this;
-            this.baseAttack = baseAttackByLvl[this.level - 1];
-            this.baseDefence = baseDefenceByLvl[this.level - 1];
+            this.BaseAttack = baseAttackByLvl[this.level - 1];
+            this.BaseDefence = baseDefenceByLvl[this.level - 1];
         }
 
 
@@ -88,8 +88,8 @@ namespace ConsoleApp5
 
         private void UpdateBaseStats()
         {
-            this.baseAttack = baseAttackByLvl[this.level - 1];
-            this.baseDefence = baseDefenceByLvl[this.level - 1];
+            this.BaseAttack = baseAttackByLvl[this.level - 1];
+            this.BaseDefence = baseDefenceByLvl[this.level - 1];
         }
         /*
         private List<Position2D> updatePositions()

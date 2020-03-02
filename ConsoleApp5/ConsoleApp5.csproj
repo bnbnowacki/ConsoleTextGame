@@ -42,10 +42,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameData\DropItem.cs" />
     <Compile Include="GameData\ExperienceTable.cs" />
     <Compile Include="GameData\GameObjects\Items\Currency.cs" />
     <Compile Include="GameData\GameObjects\Items\Equipment.cs" />
     <Compile Include="GameData\GameObjects\Items\Item.cs" />
+    <Compile Include="Interfaces\IDropable.cs" />
     <Compile Include="Managers\GameManager.cs" />
     <Compile Include="Interfaces\IFightable.cs" />
     <Compile Include="Managers\InputManager.cs" />
